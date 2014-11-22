@@ -3,12 +3,12 @@ package com.shaneschulte.projecth.data;
 /**
  * Created by Aaron Barber on 22/11/14.
  */
-public class Trait {
+public class Upgrade {
 
     private String name;
     private boolean enabled;
 
-    public Trait(
+    public Upgrade(
             String name,
             boolean enabled
     ){
