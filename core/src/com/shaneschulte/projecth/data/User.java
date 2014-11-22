@@ -1,5 +1,6 @@
 package com.shaneschulte.projecth.data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,10 +13,28 @@ public class User {
     private String email;
     private boolean online;
     private Level level;
-    private List<Trait> traitsOffensive;
-    private List<Trait> traitsDefensive;
-    private List<Trait> traitsHardware;
+    private List<Upgrade> upgradesOffensive;
+    private List<Upgrade> upgradesDefensive;
+    private List<Upgrade> upgradesHardware;
     private Stats stats;
+
+    public User(
+        int id,
+        String username,
+        String email
+    ){
+        this(
+                id,
+                username,
+                email,
+                false,
+                new Level(),
+                new ArrayList<Upgrade>(),
+                new ArrayList<Upgrade>(),
+                new ArrayList<Upgrade>(),
+                new Stats()
+        );
+    }
 
     public User(
             int id,
@@ -23,9 +42,9 @@ public class User {
             String email,
             boolean online,
             Level level,
-            List<Trait> traitsOffensive,
-            List<Trait> traitsDefensive,
-            List<Trait> traitsHardware,
+            List<Upgrade> upgradesOffensive,
+            List<Upgrade> upgradesDefensive,
+            List<Upgrade> upgradesHardware,
             Stats stats
     ){
         this.id = id;
@@ -33,9 +52,9 @@ public class User {
         this.email = email;
         this.online = online;
         this.level = level;
-        this.traitsOffensive = traitsOffensive;
-        this.traitsDefensive = traitsDefensive;
-        this.traitsHardware = traitsHardware;
+        this.upgradesOffensive = upgradesOffensive;
+        this.upgradesDefensive = upgradesDefensive;
+        this.upgradesHardware = upgradesHardware;
         this.stats = stats;
     }
 
@@ -59,16 +78,16 @@ public class User {
         return level;
     }
 
-    public List<Trait> getTraitsOffensive(){
-        return traitsOffensive;
+    public List<Upgrade> getUpgradesOffensive(){
+        return upgradesOffensive;
     }
 
-    public List<Trait> getTraitsDefensive(){
-        return traitsDefensive;
+    public List<Upgrade> getUpdgradesDefensive(){
+        return upgradesDefensive;
     }
 
-    public List<Trait> getTraitsHardware(){
-        return traitsHardware;
+    public List<Upgrade> getUpdgradesHardware(){
+        return upgradesHardware;
     }
 
     public Stats getStats(){
