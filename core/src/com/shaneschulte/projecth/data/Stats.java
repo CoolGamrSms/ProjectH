@@ -8,6 +8,10 @@ public class Stats {
     private int hacksSuccessful;
     private int hacksCount;
 
+    public Stats(){
+        this(0,0);
+    }
+
     public Stats(
             int hacksSuccessful,
             int hacksCount

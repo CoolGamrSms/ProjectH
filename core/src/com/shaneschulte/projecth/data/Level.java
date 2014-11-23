@@ -10,6 +10,10 @@ public class Level {
     private int level;
     private int experience;
 
+    public Level(){
+        this(0, 0, 0, 0);
+    }
+
     public Level(
             double money,
             double data,
