@@ -48,7 +48,7 @@ public class GameScreen implements Screen {
         game.batch.disableBlending();
         game.batch.draw(bg, 0, 0, screenWidth, screenHeight);
         game.batch.enableBlending();
-        game.font.setScale(0.8f);
+        game.font.setScale(0.8f*screenHeight/1280);
         game.batch.end();
 
         //game.font.draw(game.batch, "FUCK THIS SHIT", 0, screenHeight/2);
@@ -74,13 +74,27 @@ public class GameScreen implements Screen {
         game.batch.begin();
         game.font.setColor(0.2f, 0.7f, 0.2f, 1);
 
-        String names[] = {"Scan", "Browser", "Messages", "Store", "Settings"};
+        String names[] = {"Missions", "Messages[1]", "Internet", "Store", "Settings"};
         for(int i = 0; i < 5; ++i) {
-            BitmapFont.TextBounds bounds = game.font.getBounds(names[i]);
-            game.font.drawWrapped(game.batch, names[i], 0,
+            BitmapFont.TextBounds bounds = game.font.getBounds(">> "+names[i]);
+            game.font.drawWrapped(game.batch, ">> "+names[i], screenWidth*0.04f,
                     screenHeight * (0.81f - 0.15f * (i-1) - 0.075f)+bounds.height/2,
-                    screenWidth, BitmapFont.HAlignment.CENTER);
+                    screenWidth, BitmapFont.HAlignment.LEFT);
         }
+
+        game.font.setScale(0.25f*screenHeight/1280);
+        game.font.setColor(0.65f, 0.65f, 0.65f, 1);
+        BitmapFont.TextBounds bounds = game.font.getBounds("HackerOS v1.0");
+        game.font.draw(game.batch, "HackerOS v1.0", screenWidth*0.02f,
+                              screenHeight*(0.98f)+bounds.height/2);
+        bounds = game.font.getBounds("Cash: $100,000");
+        game.font.drawWrapped(game.batch, "Cash: $100,000", 0,
+                                screenHeight*(0.98f)+bounds.height/2,
+                                screenWidth*0.98f, BitmapFont.HAlignment.RIGHT);
+        game.font.setColor(0.9f, 0.2f, 0.2f, 1);
+        game.font.drawWrapped(game.batch, "(Offline)", 0,
+                screenHeight*(0.98f)+bounds.height/2,
+                screenWidth, BitmapFont.HAlignment.CENTER);
         game.batch.end();
 
 
